@@ -1,29 +1,35 @@
 (function() {
   if (window.shrimp) return;
 
-  function createConsoleEl() {
-    var el = document.createElement('div');
-    el.style.overflowY = 'scroll';
-    el.style.wordWrap = 'break-word';
-    el.style.height = '180px';
-    el.style.backgroundColor = '#fff';
-    el.style.position = 'fixed';
-    el.style.zIndex = '100000';
-    el.style.bottom = '0';
-    el.style.right = '0';
-    el.style.left = '0';
-    el.style.borderTop = '1px solid #888';
+  function createElementWithCSS(elementType, css) {
+    var el = document.createElement(elementType);
+    for (var attribute in css) el.style[attribute] = css[attribute];
     return el;
   }
 
+  function createConsoleEl() {
+    return createElementWithCSS('div', {
+      'height': '180px',
+      'position': 'fixed',
+      'zIndex': '100000',
+      'bottom': '0',
+      'right': '0',
+      'left': '0',
+      'overflowY': 'scroll',
+      'wordWrap': 'break-word',
+      'borderTop': '1px solid #888',
+      'backgroundColor': 'white'
+    });
+  }
+
   function createLogEl(type) {
-    var el = document.createElement('div');
-    el.style.padding = '3px 5px';
-    el.style.borderBottom = '1px solid #ddd';
-    el.style.fontSize = '13px';
-    el.style.fontFamily = 'Monaco,Consolas,monospace';
-    el.style.color = {'log': 'black', 'error': 'red', 'info': 'blue'}[type];
-    return el;
+    return createElementWithCSS('div', {
+      'padding': '3px 5px',
+      'borderBottom': '1px solid #ddd',
+      'fontSize': '13px',
+      'fontFamily': 'Monaco,Consolas,monospace',
+      'color': {'log': 'black', 'error': 'red', 'info': 'blue'}[type]
+    });
   }
 
   function initOrDestroyFromHash() {
