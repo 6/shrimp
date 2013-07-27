@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>shrimp logger</title>
+  </head>
+  <body>
+    <script src="shrimp.js"></script>
+
+    <script>
+      shrimp.log("Hello, world!");
+      shrimp.log("This is using shrimp.log");
+      shrimp.info("This is using shrimp.info");
+      shrimp.error("This is using shrimp.error");
+      shrimp.log("shrimp also catches all errors and logs them, e.g.:");
+      new Object().methodDoesNotExist();
+    </script>
+
+    <h1>shrimp logger example</h1>
+    <h2>Append <span style='background:#eee;font-family:monospace;padding:4px;'>#debug</span> to the URL to see the console</h2>
+  </body>
+</html>
