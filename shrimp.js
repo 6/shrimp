@@ -85,7 +85,8 @@
   };
 
   if ('onhashchange' in window && (typeof docmode === "undefined" || docmode > 7 )) {
-    window.addEventListener("hashchange", initOrDestroyFromHash);
+    if ('addEventListener' in window) window.addEventListener("hashchange", initOrDestroyFromHash, false);
+    else if ('attachEvent' in window) window.attachEvent("onhashchange", initOrDestroyFromHash);
   }
   initOrDestroyFromHash();
 })();
