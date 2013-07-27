@@ -12,11 +12,11 @@
       shrimp.log("This is using shrimp.log");
       shrimp.info("This is using shrimp.info");
       shrimp.error("This is using shrimp.error");
-      shrimp.log("shrimp also catches all errors and logs them, e.g.:");
-      new Object().methodDoesNotExist();
+      shrimp.log("shrimp also captures and logs all errors. For example:");
+      new Object().thisMethodDoesNotExist();
     </script>
 
     <h1>shrimp logger example</h1>
-    <h2>Append <span style='background:#eee;font-family:monospace;padding:4px;'>#debug</span> to the URL to see the console</h2>
+    <h2>Append <span style='font: 100% monospace'>#debug</span> to the URL to view the console</h2>
   </body>
 </html>
