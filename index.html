@@ -12,6 +12,7 @@
       shrimp.log("This is using shrimp.log");
       shrimp.info("This is using shrimp.info");
       shrimp.error("This is using shrimp.error");
+      shrimp.log([1,2,3,"a","b","c", {some: "nested", values: [4,5,6]}])
       shrimp.log("shrimp also captures and logs all errors. For example:");
       new Object().thisMethodDoesNotExist();
     </script>

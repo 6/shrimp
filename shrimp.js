@@ -41,7 +41,11 @@
     if(options.record) logs.push({type: options.type, text: options.text});
     if (typeof consoleEl === "undefined") return;
     var logEl = createLogEl(options.type);
-    logEl.innerHTML = options.text;
+    var stringifiedText;
+    if ('JSON' in window && window.JSON.stringify) {
+      stringifiedText = window.JSON.stringify(options.text);
+    }
+    logEl.innerHTML = stringifiedText || options.text;
     consoleEl.appendChild(logEl);
     consoleEl.scrollTop = 999999999;
   }
