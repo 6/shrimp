@@ -22,9 +22,7 @@
     el.style.borderBottom = '1px solid #ddd';
     el.style.fontSize = '13px';
     el.style.fontFamily = 'Monaco,Consolas,monospace';
-    if(type === "error") el.style.color = '#f00';
-    else if(type === "info") el.style.color = '#00f';
-    else el.style.color = '#000';
+    el.style.color = {'log': 'black', 'error': 'red', 'info': 'blue'}[type];
     return el;
   }
 
