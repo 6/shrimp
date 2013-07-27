@@ -44,6 +44,7 @@
     var stringifiedText;
     if ('JSON' in window && window.JSON.stringify) {
       stringifiedText = window.JSON.stringify(options.text);
+      stringifiedText = stringifiedText.replace(/^"/, "").replace(/"$/, "");
     }
     logEl.innerHTML = stringifiedText || options.text;
     consoleEl.appendChild(logEl);
