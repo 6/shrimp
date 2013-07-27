@@ -31,12 +31,11 @@
     else window.shrimp.destroy();
   }
 
-  function print(text, type, shouldRecord) {
-    if(shouldRecord) logs.push({type: type, text: text});
-
+  function print(options) {
+    if(options.record) logs.push({type: options.type, text: options.text});
     if (typeof consoleEl === "undefined") return;
-    var logEl = createLogEl(type);
-    logEl.innerHTML = text;
+    var logEl = createLogEl(options.type);
+    logEl.innerHTML = options.text;
     consoleEl.appendChild(logEl);
     consoleEl.scrollTop = 999999999;
   }
@@ -52,7 +51,7 @@
     document.getElementsByTagName('body')[0].appendChild(consoleEl);
     for(var i = 0; i < logs.length; i++) {
       var log = logs[i];
-      print(log.text, log.type, false);
+      print({text: log.text, type: log.type, record: false});
     }
   };
 
@@ -63,15 +62,15 @@
   };
 
   window.shrimp.log = function(text) {
-    print(text, "log", true);
+    print({text: text, type: "log", record: true});
   };
 
   window.shrimp.info = function(text) {
-    print(text, "info", true);
+    print({text: text, type: "info", record: true});
   };
 
   window.shrimp.error = function(text) {
-    print(text, "error", true);
+    print({text: text, type: "error", record: true});
   };
 
   window.onerror = function(message, url, line) {
