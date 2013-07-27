@@ -27,7 +27,7 @@
   }
 
   function initOrDestroyFromHash() {
-    if (window.location.hash.match(/^#debug/)) window.shrimp.init();
+    if (window.location.hash.match(/^#debug$/)) window.shrimp.init();
     else window.shrimp.destroy();
   }
 
