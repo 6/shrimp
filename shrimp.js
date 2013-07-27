@@ -44,11 +44,12 @@
   var logs = [];
   var consoleEl;
   var docmode = document.documentMode;
+  var bodyEl = document.getElementsByTagName('body')[0];
 
   window.shrimp.init = function() {
     if (typeof consoleEl !== "undefined") return;
     consoleEl = createConsoleEl();
-    document.getElementsByTagName('body')[0].appendChild(consoleEl);
+    bodyEl.appendChild(consoleEl);
     for(var i = 0; i < logs.length; i++) {
       var log = logs[i];
       print({text: log.text, type: log.type, record: false});
@@ -57,7 +58,7 @@
 
   window.shrimp.destroy = function() {
     if (typeof consoleEl === "undefined") return;
-    document.getElementsByTagName('body')[0].removeChild(consoleEl);
+    bodyEl.removeChild(consoleEl);
     consoleEl = undefined;
   };
 
