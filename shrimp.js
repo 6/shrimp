@@ -1,33 +1,18 @@
 (function() {
   if (window.shrimp) return;
 
-  function createWrapperEl() {
-    var el = document.createElement('div');
-    el.style.position = 'fixed';
-    el.style.zIndex = '100000';
-    el.style.bottom = '0';
-    el.style.right = '0';
-    el.style.left = '0';
-    el.style.borderTop = '1px solid #999';
-    return el;
-  }
-
-  function createResizeEl() {
-    var el = document.createElement('div');
-    el.style.backgroundColor = '#eee';
-    el.style.borderBottom = '1px solid #999';
-    el.style.borderTop = '1px solid #fff';
-    el.style.padding = '1px 6px';
-    el.style.cursor = 'row-resize';
-    return el;
-  }
-
   function createConsoleEl() {
     var el = document.createElement('div');
     el.style.overflowY = 'scroll';
     el.style.wordWrap = 'break-word';
     el.style.height = '180px';
     el.style.backgroundColor = '#fff';
+    el.style.position = 'fixed';
+    el.style.zIndex = '100000';
+    el.style.bottom = '0';
+    el.style.right = '0';
+    el.style.left = '0';
+    el.style.borderTop = '1px solid #888';
     return el;
   }
 
@@ -60,17 +45,13 @@
 
   window.shrimp = {};
   var logs = [];
-  var wrapperEl, resizeEl, consoleEl;
+  var consoleEl;
   var docmode = document.documentMode;
 
   window.shrimp.init = function() {
     if (typeof consoleEl !== "undefined") return;
-    wrapperEl = createWrapperEl();
-    resizeEl = createResizeEl();
     consoleEl = createConsoleEl();
-    wrapperEl.appendChild(resizeEl);
-    wrapperEl.appendChild(consoleEl);
-    document.getElementsByTagName('body')[0].appendChild(wrapperEl);
+    document.getElementsByTagName('body')[0].appendChild(consoleEl);
     for(var i = 0; i < logs.length; i++) {
       var log = logs[i];
       print(log.text, log.type, false);
@@ -78,10 +59,8 @@
   };
 
   window.shrimp.destroy = function() {
-    if (typeof wrapperEl === "undefined") return;
-    document.getElementsByTagName('body')[0].removeChild(wrapperEl);
-    wrapperEl = undefined;
-    resizeEl = undefined;
+    if (typeof consoleEl === "undefined") return;
+    document.getElementsByTagName('body')[0].removeChild(consoleEl);
     consoleEl = undefined;
   };
 
