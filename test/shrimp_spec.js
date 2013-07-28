@@ -36,6 +36,12 @@ describe('shrimp', function() {
   });
 
   var sharedExamplesPrintMethods = function(describedMethod) {
+    it("logs complex objects in a readable manner", function() {
+      shrimp.init();
+      shrimp[describedMethod]({a: ["b", {c: "d"}, "e"], f: "g"});
+      expect($(".shrimp-log").text()).to.equal('{"a":["b",{"c":"d"},"e"],"f":"g"}');
+    });
+
     context('the console UI is open', function() {
       beforeEach(function() {
         shrimp.init();
