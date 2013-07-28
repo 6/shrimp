@@ -1,0 +1,22 @@
+{
+  "name": "shrimp",
+  "title": "shrimp",
+  "description": "lightweight JavaScript logging/debugging tool",
+  "version": "0.0.1",
+  "homepage": "https://github.com/6/shrimp",
+  "author": {
+    "name": "Peter Graham",
+    "url": "https://github.com/6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/6/shrimp.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-uglify": "~0.2.2"
+  }
+}
