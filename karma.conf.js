@@ -12,7 +12,7 @@ files = [
   MOCHA_ADAPTER,
   'test/support/*.js',
   'test/*spec.js',
-  'shrimp.js'
+  'src/shrimp.js'
 ];
 
 
