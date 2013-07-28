@@ -17,6 +17,10 @@ When the shrimp log is opened, this is what it looks like in all supported brows
 
 ![screen shot 2013-07-27 at 3 14 47 pm](https://f.cloud.github.com/assets/158675/867541/4ee71f60-f70a-11e2-9210-f363a61b31ad.png)
 
+### Download
+
+- [shrimp.js](https://raw.github.com/6/shrimp-logger/master/src/shrimp.js) (uncompressed, ~3KB)
+
 ### Usage
 
 Include `shrimp.js` on your page. It has no external dependencies. Then use the following methods in your JS code:
