@@ -8,7 +8,7 @@
   }
 
   function createConsoleEl() {
-    return createElementWithCSS('div', {
+    var el = createElementWithCSS('div', {
       'height': '180px',
       'position': 'fixed',
       'zIndex': '100000',
@@ -20,16 +20,20 @@
       'borderTop': '1px solid #888',
       'backgroundColor': 'white'
     });
+    el.setAttribute('id', 'shrimp-console');
+    return el;
   }
 
   function createLogEl(type) {
-    return createElementWithCSS('div', {
+    var el = createElementWithCSS('div', {
       'padding': '3px 5px',
       'borderBottom': '1px solid #ddd',
       'fontSize': '13px',
       'fontFamily': 'Monaco,Consolas,monospace',
       'color': {'log': 'black', 'error': 'red', 'info': 'blue'}[type]
     });
+    el.setAttribute('class', 'shrimp-log');
+    return el;
   }
 
   function initOrDestroyFromHash() {
@@ -65,6 +69,11 @@
       var log = logs[i];
       print({text: log.text, type: log.type, record: false});
     }
+  };
+
+  window.shrimp.reset = function() {
+    logs = [];
+    // TODO - clean up event listeners
   };
 
   window.shrimp.destroy = function() {
