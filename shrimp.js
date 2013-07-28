@@ -55,6 +55,14 @@
     consoleEl.scrollTop = 999999999;
   }
 
+  function resetConsole() {
+    if(typeof consoleEl !== "undefined") consoleEl.innerHTML = "";
+    for(var i = 0; i < logs.length; i++) {
+      var log = logs[i];
+      print({text: log.text, type: log.type, record: false});
+    }
+  }
+
   window.shrimp = {};
   var logs = [];
   var consoleEl;
@@ -65,15 +73,13 @@
     if (typeof consoleEl !== "undefined") return;
     consoleEl = createConsoleEl();
     bodyEl.appendChild(consoleEl);
-    for(var i = 0; i < logs.length; i++) {
-      var log = logs[i];
-      print({text: log.text, type: log.type, record: false});
-    }
+    resetConsole();
   };
 
   window.shrimp.reset = function() {
     logs = [];
     // TODO - clean up event listeners
+    resetConsole();
   };
 
   window.shrimp.destroy = function() {

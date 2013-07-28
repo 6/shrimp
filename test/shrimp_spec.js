@@ -85,4 +85,17 @@ describe('shrimp', function() {
   describe('#info', function() {
     sharedExamplesPrintMethods('info');
   });
+
+  describe('#reset', function() {
+    it('removes recorded logs', function() {
+      shrimp.init();
+      shrimp.log("1");
+      shrimp.log("2");
+      shrimp.log("3");
+      expect($(".shrimp-log").length).to.equal(3);
+
+      shrimp.reset();
+      expect($(".shrimp-log").length).to.equal(0);
+    });
+  });
 });
