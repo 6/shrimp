@@ -12,6 +12,17 @@
     "type": "git",
     "url": "https://github.com/6/shrimp.git"
   },
+  "testling": {
+    "browsers": [
+      "ie/8..latest",
+      "firefox/latest",
+      "chrome/latest",
+      "opera/latest",
+      "safari/latest"
+    ],
+    "harness" : "mocha",
+    "files": "test/*.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
