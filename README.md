@@ -1,4 +1,4 @@
-shrimp-logger
+shrimp logger
 =============
 shrimp is a lightweight JavaScript logging/debugging tool that provides:
 - a consistent console UI accross IE8+, Chrome, Firefox, and Safari
