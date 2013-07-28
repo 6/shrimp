@@ -19,7 +19,8 @@ When the shrimp log is opened, this is what it looks like in all supported brows
 
 ### Download
 
-- [shrimp.js](https://raw.github.com/6/shrimp-logger/master/src/shrimp.js) (uncompressed, ~3KB)
+- [shrimp.js](https://raw.github.com/6/shrimp/master/src/shrimp.js) (~3KB, uncompressed)
+- [shrimp.min.js](https://raw.github.com/6/shrimp/master/src/shrimp.min.js) (~0.4KB, compressed and gzipped)
 
 ### Usage
 
